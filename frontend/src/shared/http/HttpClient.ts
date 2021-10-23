@@ -93,7 +93,7 @@ class HttpClientBase {
                 password: password
             })
         };
-        return fetch(this.baseUrl + Endpoints.login, requestOptions)
+        return fetch(this.baseUrl + Endpoints.login, {...requestOptions, credentials: 'include'})
         .then(response => {
             const headers = response.headers;
             this.headers['Authorization'] = headers.get('Authorization');
